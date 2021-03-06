@@ -1,6 +1,7 @@
 // Определяем препроцессор для легкой его смены
 const preprocessor = 'sass';
-const preprocessorSyntax = preprocessor === 'sass' ? 'scss' : `${preprocessor}`;
+const syntax = 'scss';
+const preprocessorSyntax = syntax ? `${syntax}` : `${preprocessor}`;
 
 // Определили константы для работы с gulp
 const { src, dest, parallel, series, watch } = require('gulp');
