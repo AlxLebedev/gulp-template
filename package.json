@@ -1,0 +1,24 @@
+{
+  "name": "gulp-intro",
+  "version": "1.0.0",
+  "description": "learning gulp",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "gulp",
+    "build:js": "gulp scripts",
+    "test": "jest ."
+  },
+  "author": "Alexey Lebedev",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify-es": "^2.0.0"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0"
+  }
+}
