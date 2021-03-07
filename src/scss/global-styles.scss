@@ -11,9 +11,9 @@ html {
 body {
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
-    background-color: var(--bg-light);
-    background-image: radial-gradient(var(--color-blue), transparent 70%);
+    background-color: var(--bg-light-color);
+    background-image: radial-gradient(var(--gradient-color), transparent 70%);
     background-repeat: no-repeat;
     background-size: 704px 704px;
-    background-position: -352px center;
+    background-position: -352px 0px;
 }

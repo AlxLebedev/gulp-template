@@ -1,0 +1,10 @@
+@import './palette.scss';
+
+:root {
+    --bg-light-color: var(--color-black-light);
+    --bg-dark-color: var(--color-black-dark);
+    --text-color: var(--color-white);
+    --technologies-title-color: var(--color-red-light);
+    --gradient-color: var(--color-blue-light);
+    --icon-color: var(--color-white);
+}
