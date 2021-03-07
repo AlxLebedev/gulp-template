@@ -1,3 +1,5 @@
-// const jsContent = document.querySelector('.javascript__content');
-// jsContent.textContent = `This text from JS: the sum is ${result}`;
-console.info('sum =', result);
+const toggler = document.querySelector('#checkbox1');
+
+toggler.addEventListener('change', () => {
+    toggler.checked ? makeThemeLight() : makeThemeDark();
+})

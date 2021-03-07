@@ -56,7 +56,7 @@ function images() {
 
 function scripts() {
     return src([// перечисляем файлы JS (по порядку: снизу те, что используют данные из файлов выше)
-        'src/js/helpers/sum.js',
+        'src/js/helpers/themeToggler.js',
         'src/js/index.js'
     ])
     .pipe(concat('index.min.js'))// склеиваем в один файл
