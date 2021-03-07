@@ -1,0 +1,11 @@
+.header {
+    padding: 0 20x;
+    color: var(--text-color);
+    border-bottom: 3px solid var(--color-red-dark);
+
+    &__title {
+        font-size: 36px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

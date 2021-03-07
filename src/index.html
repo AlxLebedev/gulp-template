@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +8,59 @@
     <link rel="stylesheet" href="css/index.min.css">
 </head>
 <body>
-    <main>
-        <h1 class="main-title">Practicing Gulp 4</h1>
-        <section class="section javascript">
-            <h2 class="javascript__title">JavaScript Section</h2>
-            <p class="javascript__content">This text must be replaced to text from JS file</p>
+    <header class="header">
+        <h1 class="header__title" lang="en">Gulp 4</h1>
+    </header>
+    <main class="content">
+        <img class="content__image" src="images/dest/gulp-logo-text.jpg" alt="gulp">
+        <p class="content__description">Проект собран с использованием сборщика Gulp 4. Настоящий проект может служить шаблоном для сборки верстки при помощи Gulp и в дальнейшем будет развиваться в плане подклчючения новых возможностей и функций.</p>
+        <section class="content__technologies technologies">
+            <h2 class="technologies__title">Технологии в проекте</h2>
+            <ul class="technologies__list">
+                <li class="technologies__item technologies__item--gulp">
+                    <article class="tech">
+                        <img class="tech__image" src="images/dest/gulp-logo.jpg" alt="gulp logo">
+                        <div class="tech__description">
+                            <h3 class="tech__title" lang="en">Gulp</h3>
+                            <p class="tech__about">Gulp - это таск-раннер, инструмент, который позволяет автоматизировать любой ручной труд в любой области.</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="technologies__item technologies__item--sass">
+                    <article class="tech">
+                        <img class="tech__image" src="images/dest/sass-logo.jpg" alt="sass logo">
+                        <div class="tech__description">
+                            <h3 class="tech__title" lang="en">Sass/Scss</h3>
+                            <p class="tech__about">Стили проекта написаны при помощи препроцессора SASS с использованием синтаксиса SCSS. В проекте используются custom properties для указания цветов.</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="technologies__item technologies__item--grid">
+                    <article class="tech">
+                        <img class="tech__image" src="images/dest/grid-logo.jpg" alt="grid layout logo">
+                        <div class="tech__description">
+                            <h3 class="tech__title" lang="en">CSS Grid</h3>
+                            <p class="tech__about">Сетка выстроена с использованием технологии CSS Grid Layout</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="technologies__item technologies__item--js">
+                    <article class="tech">
+                        <img class="tech__image" src="images/dest/js-logo.jpg" alt="js logo">
+                        <div class="tech__description">
+                            <h3 class="tech__title" lang="en">Pure JavaScript</h3>
+                            <p class="tech__about">В проекте используется чистый JavaScript. Файлы "склеиваются" при помощи gulp-concat</p>
+                        </div>
+                    </article>
+                </li>
+            </ul>
         </section>
     </main>
+    <footer class="footer">
+        <div class="footer__copyright">
+            <p class="footer__author">Alex</p>
+        </div>
+    </footer>
     <script src="js/index.min.js"></script>
 </body>
 </html>

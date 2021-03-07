@@ -1,0 +1,15 @@
+.content {
+    padding: 20px;
+    font-size: 14px;
+    color: var(--text-color);
+
+    &__image {
+        display: block;
+        width: 200px;
+        margin: auto;
+    }
+
+    &__technologies {
+        margin-top: 30px;
+    }
+}

@@ -1,0 +1,9 @@
+.footer {
+    padding: 0 20px;
+    color: var(--text-color);
+    border-top: 3px solid var(--color-red-dark);
+
+    &__author {
+        text-align: right;
+    }
+}

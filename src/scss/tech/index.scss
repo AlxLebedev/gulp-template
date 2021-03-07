@@ -1,0 +1,40 @@
+.tech {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+        "image image"
+        "desc desc"
+    ;
+    row-gap: 25px;
+    min-width: 300px;
+
+    &__image {
+        grid-area: image;
+        margin: auto;
+        width: 160px;
+    }
+
+    &__description {
+        grid-area: desc;
+        padding: 10px;
+        background-color: var(--bg-dark);
+    }
+
+    &__title {
+        font-size: 18px;
+    }
+
+    &__about {
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 768px) {
+    .tech {
+        grid-template-areas:
+            "image desc"
+            "image desc"
+        ;
+    }
+}

@@ -1,7 +1,7 @@
 // Определяем препроцессор для легкой его смены
 const preprocessor = 'sass';
-const syntax = 'scss';
-const preprocessorSyntax = syntax ? `${syntax}` : `${preprocessor}`;
+const additionalSyntax = 'scss';
+const preprocessorSyntax = additionalSyntax ? additionalSyntax : preprocessor;
 
 // Определили константы для работы с gulp
 const { src, dest, parallel, series, watch } = require('gulp');
@@ -9,7 +9,7 @@ const { src, dest, parallel, series, watch } = require('gulp');
 // Подключим browser-sync. Для создания нового подключения вызовем метод create()
 const browserSync = require('browser-sync').create();
 
-// Подключаем concat для склеивания файлов и uglify для их минимизации JS
+// Подключаем concat для склеивания файлов и uglify для минимизации JS
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 
@@ -17,6 +17,11 @@ const uglify = require('gulp-uglify-es').default;
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleancss = require('gulp-clean-css');
+
+// Подключаем пакеты для работы с картинками
+const imagemin = require('gulp-imagemin');
+const newer = require('gulp-newer');
+const del = require('del');
 
 // Создадим функцию, которая будет инициализирует browser-sync
 function browsersync() {
@@ -42,6 +47,13 @@ function styles() {
     .pipe(browserSync.stream())// inject в браузер
 }
 
+function images() {
+    return src('src/images/src/**/*')
+    .pipe(newer('src/images/dest'))
+    .pipe(imagemin())
+    .pipe(dest('src/images/dest/'))
+}
+
 function scripts() {
     return src([// перечисляем файлы JS (по порядку: снизу те, что используют данные из файлов выше)
         'src/js/helpers/sum.js',
@@ -57,11 +69,18 @@ function startWatch() {
     watch(['src/js/**/*.js', '!src/js/**/*.min.js'], scripts);// следим за изменениями в JS файлах
     watch(`src/${preprocessorSyntax}/**/*.${preprocessorSyntax}`, styles)// следим за изменениями в файлах со стилями
     watch('src/**/*.html').on('change', browserSync.reload)// следим за изменениями в HTML файлах
+    watch('src/images/src/**/*', images)
+}
+
+function cleanImg() {
+    return del('src/images/dest/**/*', {force: true})
 }
 
 // Экспортируем функцию как готовый gulp-task (название функции указывается после знака =)
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
+exports.images = images;
+exports.cleanImg = cleanImg;
 
-exports.default = parallel(styles, scripts, browsersync, startWatch);
+exports.default = series(images, parallel(styles, scripts, browsersync, startWatch));
