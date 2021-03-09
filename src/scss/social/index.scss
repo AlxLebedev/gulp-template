@@ -1,0 +1,16 @@
+.social {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 50px);
+        margin: 0;
+        padding: 20px 0;
+    }
+
+    &__item {
+        list-style-type: none;
+    }
+
+    &__link {
+        display: inline-block;
+    }
+}

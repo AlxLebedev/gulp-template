@@ -1,4 +1,7 @@
 .footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
     padding: 0 20px;
     color: var(--text-color);
     border-top: 3px solid var(--color-red-dark);
