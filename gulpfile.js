@@ -23,6 +23,8 @@ const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const del = require('del');
 
+const svgSprite = require('gulp-svg-sprite');
+
 // Создадим функцию, которая будет инициализирует browser-sync
 function browsersync() {
     browserSync.init({
@@ -54,6 +56,18 @@ function images() {
     .pipe(dest('src/images/dest/'))
 }
 
+function svg() {
+    return src('src/images/src/svg/**/*')
+    .pipe(svgSprite({
+        mode: {
+            symbol: {
+                sprite: '../sprite.svg'
+            }
+        }
+    }))
+    .pipe(dest('src/images/dest/'))
+}
+
 function scripts() {
     return src([// перечисляем файлы JS (по порядку: снизу те, что используют данные из файлов выше)
         'src/js/helpers/themeToggler.js',
@@ -81,6 +95,7 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
 exports.images = images;
+exports.svg = svg;
 exports.cleanImg = cleanImg;
 
-exports.default = series(images, parallel(styles, scripts, browsersync, startWatch));
+exports.default = series(images, svg, parallel(styles, scripts, browsersync, startWatch));
