@@ -86,8 +86,30 @@ function startWatch() {
     watch('src/images/src/**/*', images)
 }
 
+function build() {
+    return src([
+        'src/css/**/*.min.css',
+        'src/js/**/*.min.js',
+        'src/images/dest/**/*',
+        'src/**/*.html',
+    ], { base: 'src' })
+    .pipe(dest('dist'))
+}
+
 function cleanImg() {
     return del('src/images/dest/**/*', {force: true})
+}
+
+function cleanDist() {
+    return del('dist/**/*', {force: true})
+}
+
+function cleanDev() {
+    return del([
+        'src/images/dest/**/*',
+        'src/js/*.min.js',
+        'src/css/**/*'
+    ], {force: true})
 }
 
 // Экспортируем функцию как готовый gulp-task (название функции указывается после знака =)
@@ -97,5 +119,9 @@ exports.styles = styles;
 exports.images = images;
 exports.svg = svg;
 exports.cleanImg = cleanImg;
+exports.cleanDist = cleanDist;
+exports.cleanDev = cleanDev;
+
+exports.build = series(images, svg, styles, scripts, build);
 
 exports.default = series(images, svg, parallel(styles, scripts, browsersync, startWatch));
