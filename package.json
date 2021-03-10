@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "gulp",
-    "create:svg": "gulp svg",
-    "clean:img": "gulp cleanImg"
+    "build:prod": "gulp cleanDist && gulp build",
+    "clean:img": "gulp cleanImg",
+    "clean:dist": "gulp cleanDist",
+    "clean:dev": "gulp cleanDev"
   },
   "author": "Alexey Lebedev",
   "license": "ISC",
